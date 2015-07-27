@@ -24,8 +24,10 @@ class LoginAttemptCacheService {
 
     @PostConstruct
     void init() {
-        allowedNumberOfAttempts = grailsApplication.config.bruteforcedefender.allowedNumberOfAttempts
-        Integer time = grailsApplication.config.bruteforcedefender.time
+        ConfigObject config = grailsApplication.config.bruteforcedefender
+        allowedNumberOfAttempts = config.containsKey("allowedNumberOfAttempts") ? config.allowedNumberOfAttempts : 3
+
+        Integer time = config.containsKey("time") ? config.time : 5
 
         attempts = CacheBuilder.newBuilder()
                 .expireAfterWrite(time, TimeUnit.MINUTES)
