@@ -6,15 +6,15 @@ import grails.plugin.springsecurity.SpringSecurityUtils
 
 class RecaptchaSpringSecurityGrailsPlugin {
 
-    def version = "0.2.2"
+    def version = "1.0"
     def grailsVersion = "2.3.2 > *"
     def pluginExcludes = ["grails-app/conf/RecaptchaConfig.groovy"]
     def loadAfter = ['springSecurityCore']
 
     def title = "Recaptcha Spring Security Plugin"
 
-    def author = "Roberto Pérez Alcolea"
-    def authorEmail = "roberto@perezalcolea.info"
+    def author = "Sudhir Nimavat, Roberto Pérez Alcolea"
+    def authorEmail = "sudhir@nimavat.me"
 
     def description = 'Prevents brute force attack with Spring security and Recaptcha.'
     def documentation = "http://grails.org/plugin/recaptcha-spring-security"
