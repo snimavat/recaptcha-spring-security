@@ -19,8 +19,8 @@ class RecaptchaSpringSecurityGrailsPlugin {
     def description = 'Prevents brute force attack with Spring security and Recaptcha.'
     def documentation = "http://grails.org/plugin/recaptcha-spring-security"
 
-    def issueManagement = [system: "Github", url: "https://github.com/rpalcolea/recaptcha-spring-security/issues"]
-    def scm = [url: "https://github.com/rpalcolea/recaptcha-spring-security"]
+    def issueManagement = [system: "Github", url: "https://github.com/snimavat/recaptcha-spring-security/issues"]
+    def scm = [url: "https://github.com/snimavat/recaptcha-spring-security"]
     def license = "APACHE"
 
     def doWithSpring = {
