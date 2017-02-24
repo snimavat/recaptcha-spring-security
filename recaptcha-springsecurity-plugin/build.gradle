@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-version "3.0.0.1"
+version "3.0.1"
 group "org.grails.plugins"
 
 apply plugin:"idea"
@@ -53,16 +53,21 @@ bootRun {
 // enable if you wish to package this plugin as a standalone application
 bootRepackage.enabled = false
 grailsPublish {
-    // TODO: Provide values here
-    user = 'user'
-    key = 'key'
-    githubSlug = 'foo/bar'
+
+    user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
+    key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
+
+    githubSlug = 'snimavat/recaptcha-spring-security'
+
     license {
         name = 'Apache-2.0'
     }
-    title = "My Plugin"
-    desc = "Full plugin description"
-    developers = [johndoe:"John Doe"]
-    portalUser = ""
-    portalPassword = ""    
+
+    title = "Recaptcha Spring security"
+    desc = "Recaptcha support for Spring security"
+    developers = [snimavat:"Sudhir Nimavat"]
+
+    portalUser = System.getenv("GRAILS_PORTAL_USER") ?: project.grailsPortalUser
+    portalPassword = System.getenv("GRAILS_PORTAL_PASSWORD") ?: project.grailsPortalPassword
+
 }
