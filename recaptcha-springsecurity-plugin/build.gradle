@@ -1,0 +1,68 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+    }
+}
+
+version "3.0.0.1"
+group "org.grails.plugins"
+
+apply plugin:"idea"
+apply plugin:"org.grails.grails-plugin"
+apply plugin:"org.grails.grails-plugin-publish"
+apply plugin:"org.grails.grails-gsp"
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.grails:grails-core"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    provided "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-web-boot"
+    compile "org.grails.plugins:cache"
+    profile "org.grails.profiles:web-plugin"
+    provided "org.grails:grails-plugin-services"
+    provided "org.grails:grails-plugin-domain-class"
+    testCompile "org.grails:grails-plugin-testing"
+
+    compile 'org.grails.plugins:spring-security-core:3.1.1'
+    compile 'org.grails.plugins:recaptcha:3.1.0'
+    compile "com.google.guava:guava:14.0-rc1"
+}
+
+bootRun {
+    jvmArgs('-Dspring.output.ansi.enabled=always')
+}
+// enable if you wish to package this plugin as a standalone application
+bootRepackage.enabled = false
+grailsPublish {
+    // TODO: Provide values here
+    user = 'user'
+    key = 'key'
+    githubSlug = 'foo/bar'
+    license {
+        name = 'Apache-2.0'
+    }
+    title = "My Plugin"
+    desc = "Full plugin description"
+    developers = [johndoe:"John Doe"]
+    portalUser = ""
+    portalPassword = ""    
+}
