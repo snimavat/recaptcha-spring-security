@@ -1,4 +1,0 @@
-rootProject.name = 'recaptcha-spring-security'
-
-//include ':recaptcha'
-//project(':recaptcha').projectDir = new File(settingsDir, '../grails3-recaptcha')

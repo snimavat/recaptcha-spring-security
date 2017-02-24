@@ -1,4 +1,4 @@
-package demo.app
+package me.nimavat.recaptcha.demo
 
 class UrlMappings {
 

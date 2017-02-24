@@ -2,6 +2,8 @@ package org.grails.plugins.recaptchaspringsecurity
 
 import grails.config.Config
 import grails.core.GrailsApplication
+import groovy.transform.CompileDynamic
+import groovy.transform.CompileStatic
 
 import java.util.concurrent.TimeUnit
 
@@ -17,6 +19,7 @@ import com.google.common.cache.LoadingCache
  * @author Grygoriy Mykhalyunyo
  * @modified by Roberto Perez
  */
+@CompileStatic
 class LoginAttemptCacheService {
 
     GrailsApplication grailsApplication
@@ -26,8 +29,9 @@ class LoginAttemptCacheService {
     private Integer allowedNumberOfAttempts
 
     @PostConstruct
+    @CompileDynamic
     void init() {
-        def config = grailsApplication.config.bruteforcedefender
+        Map config = grailsApplication.config.bruteforcedefender
         allowedNumberOfAttempts = config.containsKey("allowedNumberOfAttempts") ? config.allowedNumberOfAttempts : 3
 
         Integer time = config.containsKey("time") ? config.time : 5
@@ -60,10 +64,12 @@ class LoginAttemptCacheService {
         deactivateRecaptcha()
     }
 
+    @CompileDynamic
     private activateRecaptcha() {
         RequestContextHolder.currentRequestAttributes().session.recaptchaForLogin = true
     }
 
+    @CompileDynamic
     private deactivateRecaptcha() {
         RequestContextHolder.currentRequestAttributes().session.recaptchaForLogin = false
     }

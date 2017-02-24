@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: demo.app
+        defaultPackage: me.nimavat.recaptcha.demo
     spring:
         transactionManagement:
             proxies: false
@@ -130,8 +130,8 @@ environments:
 
 ---
 recaptcha:
-    publicKey: "6Lc6GgoTAAAAAGmu6BBTXLBYpdLKsMsCRmI1piVV"
-    privateKey: "6Lc6GgoTAAAAADhp-8_YIlO3h4xk3NqC7t9859Dk"
+    publicKey: ""
+    privateKey: ""
 
 bruteforcedefender:
   time: 5

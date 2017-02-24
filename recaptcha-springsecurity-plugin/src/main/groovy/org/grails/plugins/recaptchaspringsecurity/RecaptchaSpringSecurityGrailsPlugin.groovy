@@ -38,6 +38,7 @@ class RecaptchaSpringSecurityGrailsPlugin extends Plugin {
 			captchaCaptureFilter(CaptchaCaptureFilter) {
 				failureUrl = SpringSecurityUtils.securityConfig.failureHandler.defaultFailureUrl
 				recaptchaService = ref('recaptchaService')
+				requiresAuthenticationRequestMatcher = ref("filterProcessUrlRequestMatcher")
 			}
 
 			SpringSecurityUtils.registerFilter 'captchaCaptureFilter', SecurityFilterPosition.SECURITY_CONTEXT_FILTER.order + 10

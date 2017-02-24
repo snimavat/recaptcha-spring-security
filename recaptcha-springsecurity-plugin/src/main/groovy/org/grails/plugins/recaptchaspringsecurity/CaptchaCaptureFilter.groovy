@@ -1,6 +1,7 @@
 package org.grails.plugins.recaptchaspringsecurity
 
 import com.megatome.grails.RecaptchaService
+import grails.plugin.springsecurity.web.authentication.FilterProcessUrlRequestMatcher
 import org.apache.log4j.Logger
 import org.grails.web.servlet.mvc.GrailsWebRequest
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler
@@ -21,7 +22,8 @@ public class CaptchaCaptureFilter extends OncePerRequestFilter {
     private final Logger log = Logger.getLogger(getClass());
 
     private String failureUrl;
-    private RecaptchaService recaptchaService;
+    private RecaptchaService recaptchaService
+    FilterProcessUrlRequestMatcher requiresAuthenticationRequestMatcher
 
     private SimpleUrlAuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
 
@@ -33,7 +35,7 @@ public class CaptchaCaptureFilter extends OncePerRequestFilter {
 
         try {
 
-            if(req.isPost() && req.getRequestURI().endsWith("/j_spring_security_check") && session.getAttribute("recaptchaForLogin")) {
+            if(req.isPost() && requiresAuthenticationRequestMatcher.matches(req) && session.getAttribute("recaptchaForLogin")) {
                 // Assign values only when user has submitted a Captcha value.
                 String recaptcha_response = req.getParameter("g-recaptcha-response");
                 String remoteAddr = req.getRemoteAddr();
