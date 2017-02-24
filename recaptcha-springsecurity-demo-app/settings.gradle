@@ -1,0 +1,4 @@
+rootProject.name = 'recaptcha-spring-security-demo-app'
+
+include ':recaptcha-springsecurity-plugin'
+project(':recaptcha-springsecurity-plugin').projectDir = new File(settingsDir, '../recaptcha-springsecurity-plugin')
