@@ -26,16 +26,16 @@ Configuration
 
 ## Config.groovy
 
-Add the following lines to your Grails Config.groovy file:
+Configure [recaptcha plugin](http://plugins.grails.org/plugin/iamthechad/recaptcha#configuration)
+
+And then Add the following lines to your Grails Config.groovy file:
 
 	bruteforcedefender {
     	time = 5
     	allowedNumberOfAttempts = 3
 	}
 
-time = minutes mantaining failed attempts
-allowed
-
+time = minutes mantaining failed attempts allowed
 NumberOfAttempts = number of failed attempts before showing the recaptcha widget.
 
 Adding the recaptcha to your auth view
@@ -45,6 +45,8 @@ Open your auth.gsp (/grails-app/views/login/auth.gsp) and add the next line wher
 
           <g:recaptchaLogin/>
 
+
+Note: The plugin depends on spring security authentication events and so it sets grails.plugin.springsecurity.useSecurityEventListener = true
 
 Extras
 ========================
