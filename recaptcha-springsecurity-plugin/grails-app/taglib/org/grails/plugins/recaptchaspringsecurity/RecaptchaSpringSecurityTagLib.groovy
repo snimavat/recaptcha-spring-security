@@ -1,6 +1,6 @@
 package org.grails.plugins.recaptchaspringsecurity
 
-class RecaptchaSpringSecurityMenuTagLib {
+class RecaptchaSpringSecurityTagLib {
 
     Closure recaptchaLogin = { attrs ->
         def theme = attrs.theme ?: 'light'
