@@ -52,3 +52,8 @@ Extras
 ========================
 
 Thanks to [Vinco Orbis](http://www.vincoorbis.com) and [Burt Beckwith](https://github.com/burtbeckwith)
+
+Thanks to JetBrains for Awesome IntelliJ Idea
+
+<img src="https://cdn.rawgit.com/snimavat/repo-bin/master/assets/jetbrains/icon_IntelliJIDEA.svg" width="48">
+
